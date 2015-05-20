@@ -26,26 +26,27 @@ shinyUI(navbarPage("Superzip", id="nav",
       #https://a.tiles.mapbox.com/v4/ebner.m6hab7b1/page.html?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw#6/43.061/-78.223
       leafletMap("map", width="100%", height="100%",
         #initialTileLayer = "//{s}.tiles.mapbox.com/v3/jcheng.map-5ebohr46/{z}/{x}/{y}.png",  
-        initialTileLayer = 
-            "//a.tiles.mapbox.com/v3/ebner.map-m6hab7b1/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw",
-        #initialTileLayer = "//{s}.tiles.mapbox.com/v3/ebner.m6hab7b1?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw#6/{z}/{x}/{y}.png",
+        #initialTileLayer = "//{s}.tiles.mapbox.com/v3/ebner.m6hab7b1/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw",
+        initialTileLayer = "//api.tiles.mapbox.com/v4/ebner.m6hab7b1/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw",
+        #initialTileLayer = "//{s}.tiles.mapbox.com/v3/ebner.m6hab7b1?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw/{z}/{x}/{y}.png",
         #initialTileLayer = "//{s}.tiles.mapbox.com/v3/ebner.m6hab7b1/{z}/{x}/{y}.png",
-        #initialTileLayer = "//a.tiles.mapbox.com/v4/ebner.m6hab7b1/page.html?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw#6/43.061/-78.223",
+        #initialTileLayer = "//{s}.tiles.mapbox.com/v4/ebner.m6hab7b1/page.html?access_token=pk.eyJ1IjoiZWJuZXIiLCJhIjoiM2tCcWozSSJ9.EnkNFRKUEmpSDa1eskNepw/43.061/-78.223",
         initialTileLayerAttribution = HTML('Maps by <a href="http://www.mapbox.com/">Mapbox</a>'),
         
         # below works.
         #initialTileLayer = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
-        #initialTileLayerAttribution = HTML('� OpenStreetMap contributors, CC-BY-SA'),
+        #initialTileLayerAttribution = HTML('© OpenStreetMap contributors, CC-BY-SA'), 
         options=list(
-          center = c(37.45, -93.85),
-          zoom = 4,
-          maxBounds = list(list(15.961329,-129.92981), list(52.908902,-56.80481)) # Show US only
+          center = c(42.6656, -77),
+          zoom = 9,
+          #maxBounds = list(list(15.961329,-129.92981), list(52.908902,-56.80481)) # Show US only
+          maxBounds = list(list(40,-80), list(46,-74))
         )
       ),
 
       # Shiny versions prior to 0.11 should use class="modal" instead.
       absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
-        draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
+        draggable = TRUE, top = 100, left = "auto", right = 20, bottom = "auto",
         width = 330, height = "auto",
 
         h2("ZIP explorer"),
@@ -62,7 +63,7 @@ shinyUI(navbarPage("Superzip", id="nav",
       ),
 
       tags$div(id="cite",
-        'Data compiled for ', tags$em('Coming Apart: The State of White America, 1960–2010'), ' by Charles Murray (Crown Forum, 2012).'
+        'Data compiled for ', tags$em('Coming Apart: The State of White America, 1960â2010'), ' by Charles Murray (Crown Forum, 2012).'
       )
     )
   ),
